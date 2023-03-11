@@ -21492,7 +21492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33e82eed20cc3764cabd0831d579249b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.5
+      value: 12.49
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 33e82eed20cc3764cabd0831d579249b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -57829,6 +57829,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516728951}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1518770920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 33e82eed20cc3764cabd0831d579249b, type: 3}
+  m_PrefabInstance: {fileID: 364920804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1518770921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518770920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926b205c4fb619a49bfc054029841544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummyPrefab: {fileID: 5959200618324146515, guid: 80d295fc3f32594458f0e0022e734f23, type: 3}
+  bodyPrefab: {fileID: 8939003383838412835, guid: 22f58252e749a294b8bd595c882f247f, type: 3}
+  tailPrefab: {fileID: 2275348940988733796, guid: 06d3d54f28a58af4092e39e3f429c196, type: 3}
+  pathType: 0
+  pathValue:
+  - {x: 0.5, y: 0, z: 12.5}
+  - {x: 0.5, y: 0, z: 11.5}
+  - {x: 3.5, y: 0, z: 11.5}
+  - {x: 3.5, y: 0, z: 14.5}
+  - {x: 0.5, y: 0, z: 14.5}
+  - {x: 0.5, y: 0, z: 12.5}
+  duration: 4
+  delay: 72
+  bodySpeed: 10
 --- !u!1 &1520907915
 GameObject:
   m_ObjectHideFlags: 0
