@@ -9,6 +9,7 @@ public class GridMovement : MonoBehaviour
 {
 
     private Vector3 originalPosition, targetPosition;
+    [SerializeField] private GameObject character;
     public bool canLeft, canRight, canFront, canBack;
     private float timeToMove = 0.2f;
     public bool isMoving;
@@ -18,6 +19,7 @@ public class GridMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && !isMoving && canFront)
         {
             StartCoroutine(MovePlayer(Vector3.forward));
+            
         }
 
         if (Input.GetKeyDown(KeyCode.A) && !isMoving && canLeft)
@@ -34,18 +36,21 @@ public class GridMovement : MonoBehaviour
         {
             StartCoroutine(MovePlayer(Vector3.back));
         }
+        
 
     }
     
 
     private IEnumerator MovePlayer(Vector3 direction)
     {
+        character.transform.rotation = Quaternion.LookRotation(direction);
         isMoving = true;
         
         float elapsedTime = 0;
         
         originalPosition = transform.position;
         targetPosition = originalPosition + direction;
+        
 
         while (elapsedTime < timeToMove)
         {
