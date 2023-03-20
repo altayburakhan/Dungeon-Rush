@@ -13,13 +13,19 @@ public class GridMovement : MonoBehaviour
     public bool canLeft, canRight, canFront, canBack;
     private float timeToMove = 0.2f;
     public bool isMoving;
+    private Animator _animator;
+
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     void  Update()
     {
         if (Input.GetKeyDown(KeyCode.W) && !isMoving && canFront)
         {
             StartCoroutine(MovePlayer(Vector3.forward));
-            
         }
 
         if (Input.GetKeyDown(KeyCode.A) && !isMoving && canLeft)
@@ -36,8 +42,6 @@ public class GridMovement : MonoBehaviour
         {
             StartCoroutine(MovePlayer(Vector3.back));
         }
-        
-
     }
     
 
@@ -62,6 +66,7 @@ public class GridMovement : MonoBehaviour
         transform.position = targetPosition;
         
         isMoving = false;
+        _animator.SetBool("isMoving", false);
     }
 
 }
