@@ -11,11 +11,12 @@ public class Fire : GameManager
     private void Start()
     {
         fire = GetComponent<ParticleSystem>();
+        StartCoroutine("FireTime");
     }
 
     private void Update()
     {
-        StartCoroutine("FireTime");
+        
     }
 
     private void OnParticleCollision(GameObject other)
@@ -28,8 +29,16 @@ public class Fire : GameManager
 
     IEnumerator FireTime()
     {
-        fire.Play();
-        yield return new WaitForSeconds(2);
-        fire.Stop();
+        //fire.Play();
+        
+        //fire.Play();
+        
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            fire.Stop();
+            yield return new WaitForSeconds(2); 
+            fire.Play();
+        }
     }
 }

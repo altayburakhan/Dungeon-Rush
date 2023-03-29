@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 /*using UnityEngine.Windows.Speech;*/
@@ -14,6 +15,7 @@ public class GridMovement : MonoBehaviour
     private float timeToMove = 0.2f;
     public bool isMoving;
     private Animator _animator;
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
 
     private void Start()
@@ -48,8 +50,8 @@ public class GridMovement : MonoBehaviour
     private IEnumerator MovePlayer(Vector3 direction)
     {
         character.transform.rotation = Quaternion.LookRotation(direction);
-        isMoving = true;
-        
+        isMoving = true; 
+        _animator.SetBool(IsMoving, true);
         float elapsedTime = 0;
         
         originalPosition = transform.position;
@@ -66,7 +68,8 @@ public class GridMovement : MonoBehaviour
         transform.position = targetPosition;
         
         isMoving = false;
-        _animator.SetBool("isMoving", false);
+        _animator.SetBool(IsMoving, false);
     }
+    
 
 }
