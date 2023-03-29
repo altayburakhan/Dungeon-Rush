@@ -20,7 +20,7 @@ public class GridMovement : MonoBehaviour
 
     private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     void  Update()
