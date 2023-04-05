@@ -1,22 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static ScoreManager instance;
+    [SerializeField] private TextMeshProUGUI coinText;
+    protected int score = 0;
+    private void Start()
     {
-        
+        instance = this;
+        coinText.text = score.ToString();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeScore(int coin)
     {
-        
+        score += coin;
+        coinText.text = score.ToString();
     }
 
-    public class instance
-    {
-    }
 }
+
