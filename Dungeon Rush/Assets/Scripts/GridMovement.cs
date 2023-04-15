@@ -11,6 +11,7 @@ public class GridMovement : MonoBehaviour
 
     private Vector3 originalPosition, targetPosition;
     [SerializeField] private GameObject character;
+    [SerializeField] private AudioClip dashSound;
     public bool canLeft, canRight, canFront, canBack;
     private float timeToMove = 0.2f;
     public bool isMoving;
@@ -28,21 +29,25 @@ public class GridMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && !isMoving && canFront)
         {
             StartCoroutine(MovePlayer(Vector3.forward));
+            AudioSource.PlayClipAtPoint(dashSound, transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.A) && !isMoving && canLeft)
         {
             StartCoroutine(MovePlayer(Vector3.left));
+            AudioSource.PlayClipAtPoint(dashSound, transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.D) && !isMoving && canRight)
         {
             StartCoroutine(MovePlayer(Vector3.right));
+            AudioSource.PlayClipAtPoint(dashSound, transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.S) && !isMoving && canBack)
         {
             StartCoroutine(MovePlayer(Vector3.back));
+            AudioSource.PlayClipAtPoint(dashSound, transform.position);
         }
     }
     

@@ -19,8 +19,8 @@ public class Thrower : MonoBehaviour
         while (true)
         {
             var transform1 = transform;
-            GameObject launcher = Instantiate(bullet, transform1.position, transform1.rotation);
-            launcher.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0,0,-launchSpeed)); 
+            GameObject launcher = Instantiate(bullet, transform1.position, bullet.transform.rotation);
+            launcher.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0,launchSpeed,0)); 
             yield return new WaitForSeconds(2);
         }
         
