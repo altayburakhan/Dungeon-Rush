@@ -1,18 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Delay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject coin, nextLevel, exit;
+
+    private void Update()
     {
-        
+        if (gameObject)
+        {
+            StartCoroutine("ShowUI");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ShowUI()
     {
-        
+        yield return new WaitForSeconds(1);
+        coin.SetActive(true);
+        yield return new WaitForSeconds(1);
+        nextLevel.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        exit.SetActive(true);
     }
 }
