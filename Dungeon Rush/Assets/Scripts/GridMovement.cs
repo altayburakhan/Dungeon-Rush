@@ -10,7 +10,7 @@ public class GridMovement : MonoBehaviour
 {
 
     private Vector3 originalPosition, targetPosition;
-    [SerializeField] private GameObject character;
+    [SerializeField] private Transform character;
     [SerializeField] private AudioClip dashSound;
     public bool canLeft, canRight, canFront, canBack;
     private float timeToMove = 0.2f;
@@ -54,7 +54,7 @@ public class GridMovement : MonoBehaviour
 
     private IEnumerator MovePlayer(Vector3 direction)
     {
-        character.transform.rotation = Quaternion.LookRotation(direction);
+        character.rotation = Quaternion.LookRotation(direction);
         isMoving = true; 
         _animator.SetBool(IsMoving, true);
         float elapsedTime = 0;

@@ -34,5 +34,6 @@ public class CurvedText : MonoBehaviour
 
         // Apply the curve position to the TMP object
         tmp.rectTransform.localPosition = curvePosition;
+        
     }
 }

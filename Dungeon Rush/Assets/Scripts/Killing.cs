@@ -11,6 +11,7 @@ public class Killing : GameManager
         if (other.gameObject == player)
         {
             isDead = true;
+            Debug.Log("dead");
         }
     }
 }
