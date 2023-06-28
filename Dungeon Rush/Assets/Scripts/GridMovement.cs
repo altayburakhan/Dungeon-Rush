@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +17,9 @@ public class GridMovement : MonoBehaviour
     private float timeToMove = 0.2f;
     public bool isMoving;
     private Animator _animator;
+    private GameManager _gameManager;
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+    
 
 
     private void Start()
@@ -26,29 +29,33 @@ public class GridMovement : MonoBehaviour
 
     void  Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && !isMoving && canFront)
+        if (!_gameManager.isDead)
         {
-            StartCoroutine(MovePlayer(Vector3.forward));
-            AudioSource.PlayClipAtPoint(dashSound, transform.position);
-        }
+            if (Input.GetKeyDown(KeyCode.W) && !isMoving && canFront)
+            {
+                StartCoroutine(MovePlayer(Vector3.forward));
+                AudioSource.PlayClipAtPoint(dashSound, transform.position);
+            }
 
-        if (Input.GetKeyDown(KeyCode.A) && !isMoving && canLeft)
-        {
-            StartCoroutine(MovePlayer(Vector3.left));
-            AudioSource.PlayClipAtPoint(dashSound, transform.position);
-        }
+            if (Input.GetKeyDown(KeyCode.A) && !isMoving && canLeft)
+            {
+                StartCoroutine(MovePlayer(Vector3.left));
+                AudioSource.PlayClipAtPoint(dashSound, transform.position);
+            }
 
-        if (Input.GetKeyDown(KeyCode.D) && !isMoving && canRight)
-        {
-            StartCoroutine(MovePlayer(Vector3.right));
-            AudioSource.PlayClipAtPoint(dashSound, transform.position);
-        }
+            if (Input.GetKeyDown(KeyCode.D) && !isMoving && canRight)
+            {
+                StartCoroutine(MovePlayer(Vector3.right));
+                AudioSource.PlayClipAtPoint(dashSound, transform.position);
+            }
 
-        if (Input.GetKeyDown(KeyCode.S) && !isMoving && canBack)
-        {
-            StartCoroutine(MovePlayer(Vector3.back));
-            AudioSource.PlayClipAtPoint(dashSound, transform.position);
+            if (Input.GetKeyDown(KeyCode.S) && !isMoving && canBack)
+            {
+                StartCoroutine(MovePlayer(Vector3.back));
+                AudioSource.PlayClipAtPoint(dashSound, transform.position);
+            }
         }
+        
     }
     
 

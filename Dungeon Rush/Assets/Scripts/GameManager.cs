@@ -9,7 +9,7 @@ using Unity.VisualScripting;
 public class GameManager : MonoBehaviour
 {
    public GameObject player;
-   protected bool isDead;
+   public bool isDead;
 
    IEnumerator Waiting()
    {
