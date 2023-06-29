@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
    public GameObject player;
    public bool isDead;
 
+   
    IEnumerator Waiting()
    {
       yield return new WaitForSeconds(1);
    }
-
    private void Start()
    {
       //Instantiate(player, new Vector3(0.5f, 0.13f, 0.5f), Quaternion.identity);

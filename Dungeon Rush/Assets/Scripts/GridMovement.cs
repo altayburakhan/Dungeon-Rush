@@ -17,7 +17,7 @@ public class GridMovement : MonoBehaviour
     private float timeToMove = 0.2f;
     public bool isMoving;
     private Animator _animator;
-    private GameManager _gameManager;
+    public GameManager _gameManager;
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
     
 

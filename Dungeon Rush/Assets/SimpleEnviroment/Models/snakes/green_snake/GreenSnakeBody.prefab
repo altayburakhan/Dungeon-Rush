@@ -59,7 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812b68a4c141e0847ace5abf19da06f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2040096232375800840, guid: 534a02e1950579141a869b8a68a3f23b, type: 3}
+  player: {fileID: 0}
+  isDead: 0
+  _animator: {fileID: 0}
 --- !u!1001 &6500282607969138816
 PrefabInstance:
   m_ObjectHideFlags: 0

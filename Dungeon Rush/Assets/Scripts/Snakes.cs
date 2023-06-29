@@ -16,6 +16,8 @@ public class Snakes : MonoBehaviour
    
    public PathType pathType = PathType.Linear;
    
+   public GameManager gameManager;
+   
    Tween _tween;
    [SerializeField] Vector3[]  pathValue = new Vector3[6];
    [SerializeField] private float duration;
@@ -31,7 +33,6 @@ public class Snakes : MonoBehaviour
       SnakeTail();
       _tween = transform.DOPath(pathValue, duration, pathType);
       _tween.SetEase(Ease.Linear).SetLoops(-1);
-      
    }
 
    private void Update()
@@ -55,12 +56,14 @@ public class Snakes : MonoBehaviour
    {
       GameObject bodyC = Instantiate(bodyPrefab);
       BodyParts.Add(bodyC);
+      bodyC.GetComponent<Killing>().player = gameManager.player;
    }
 
    void SnakeTail()
    {
       GameObject tail = Instantiate(tailPrefab);
       BodyParts.Add(tail);
+      tail.GetComponent<Killing>().player = gameManager.player;
    }
    void SnakeDummy()
    {
